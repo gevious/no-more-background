@@ -1,0 +1,25 @@
+// Components
+
+CLI [shape: hexagon]
+  label: "thumbnail-processor\n(clap)"
+
+native_engine [shape: cylinder]
+  label: "engine.rs\nnative RMBG\nONNX Runtime"
+
+external_engine [shape: cylinder]
+  label: "engine.rs\nexternal subprocess\nstdin/stdout PNG"
+
+batch_processor [shape: square]
+  label: "batch.rs\ntokio pool\nsemaphore"
+
+model_file [shape: document]
+  label: "model.onnx\n(--model)"
+
+filesystem [shape: cylinder]
+  label: "input/output\ndirs"
+
+CLI -> batch_processor: process_directory()
+batch_processor -> filesystem: scan + write
+batch_processor -> native_engine: default engine
+batch_processor -> external_engine: --engine path
+native_engine -> model_file: load once

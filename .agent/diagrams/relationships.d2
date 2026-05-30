@@ -1,0 +1,7 @@
+// Module relationships
+
+thumbnail_processor.main -> thumbnail_processor.lib: calls
+thumbnail_processor.lib -> thumbnail_processor.engine: exports
+thumbnail_processor.lib -> thumbnail_processor.batch: exports
+thumbnail_processor.main -> thumbnail_processor.batch: EngineConfig + process_directory
+thumbnail_processor.batch -> thumbnail_processor.engine: BackgroundRemovalEngine + remove_background

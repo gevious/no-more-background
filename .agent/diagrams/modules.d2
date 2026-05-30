@@ -1,0 +1,12 @@
+// Modules for thumbnail-selfie-processor
+
+thumbnail_processor {
+  main: "main.rs" [shape: document]
+  lib: "lib.rs" [shape: document]
+  engine: "engine.rs" [shape: document]
+  batch: "batch.rs" [shape: document]
+
+  main.label: "CLI entry — parses args, builds EngineConfig, calls process_directory"
+  engine.label: "engine module — native ONNX + external subprocess BG removal"
+  batch.label: "batch module — dir scan, worker pool, output write"
+}

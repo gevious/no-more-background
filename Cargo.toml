@@ -1,0 +1,17 @@
+[package]
+name = "thumbnail-processor"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+image = "0.25"
+ort = { version = "=2.0.0-rc.1", default-features = false, features = ["download-binaries", "ndarray", "copy-dylibs"] }
+ort-sys = { version = "=2.0.0-rc.1", default-features = false }
+rmbg = { version = "0.1.0", default-features = false }
+thiserror = "1"
+tokio = { version = "1", features = ["full"] }
+
+[dev-dependencies]
+tempfile = "3"
